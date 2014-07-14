@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setState</title>
+    <script src="http://fb.me/react-0.8.0.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    /*** @jsx React.DOM */
+    var app = React.createClass({
+        getInitialState:function(){
+            return {txt:'',id:0}
+        },
+        updateTxt:function(e){
+            this.setState({txt:e.target.value})
+        },
+        render:function(){
+          return(
+            <div>
+               Name:<input type="text" onChange={this.updateTxt} />.&nbsp;&nbsp;
+                    {this.state.txt}
+               
+            </div>   
+         )
+       }
+    });
+    React.renderComponent(<app />,document.body)
+</script>
+</body>
+</html>

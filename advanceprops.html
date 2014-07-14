@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Render Method Gotchas</title>
+    <script src="http://fb.me/react-0.8.0.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+</head>
+<body>
+  <script type="text/jsx">
+      /*** @jsx React.DOM */
+      var app = React.createClass({
+          getDefaultProps:function(){
+             return {
+              txt: 'checking default properites', 
+              num:6        
+             }  
+          },
+      propTypes:{
+        txt:React.PropTypes.string,
+        num:React.PropTypes.number.isRequired
+      },
+          render :function(){
+         	  // console.log(this.props.txt)
+              return(
+                <div>
+ 		             	<h1>{this.props.txt}</h1>
+    		           <h3>{this.props.num}</h3>
+    		        </div>
+            ) 
+         }
+      });
+      React.renderComponent(<app cat={8}/>,document.body)     
+  </script>
+</body>
+</html>

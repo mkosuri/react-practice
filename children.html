@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Refs</title>
+    <script src="react-0.8.0.js"></script>
+    <script src="JSXTransformer-0.8.0.js"></script>
+   <link rel="stylesheet"
+        href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
+</head>
+<body>
+<h3>access childredn component</h3>
+<script type="text/jsx">
+    /** @jsx React.DOM */
+      var app = React.createClass({
+         render:function(){
+          return(
+            <BButton>I <BHeart /> React</BButton>
+
+            )
+         }
+    });
+
+
+    var BButton = React.createClass({
+         render:function(){
+         	 return (
+         	 	<a className="btn btn-primary">{this.props.children}</a>
+         	 	)
+         }
+    });
+
+    
+    var BHeart = React.createClass({
+         render:function(){
+         	 return (
+         	  <span className="glyphicon glyphicon-heart"></span>
+         	 	)
+         }
+    });
+  
+
+React.renderComponent(<app />,document.body)  
+        
+</script>
+</body>
+
+
+<!-- Parse Error: Line 15: Unexpected token return -->
+<!-- these error may be reason two return  -->

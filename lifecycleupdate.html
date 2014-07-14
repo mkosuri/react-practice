@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lifecycle with updating updating</title>
+    <script src="react-0.8.0.js"></script>
+    <script src="JSXTransformer-0.8.0.js"></script>
+</head>
+<body>
+  <h4>Lifecycle with updating updating</h4>
+		
+  <div id="panel"></div>
+  <script type="text/jsx">
+    /** @jsx React.DOM */
+    var app =  React.createClass({
+      getInitialState:function(){
+        return {increasing:false}
+         },
+      update:function(){
+                var newVal = this.props.val+2
+                this.setProps({val:newVal})
+            },
+      componentWillReceiveProps:function(nextProps){
+                alert(nextProps.val);
+                this.setState({increasing:nextProps.val>this.props.val})
+            },
+
+      shouldComponentUpdate: function(nextProps, nextState) {
+              return nextProps.val % 5 ===0;
+            },
+
+      render:function(){
+                console.log(this.state.increasing)
+                return  (
+                                <button
+                                    onClick={this.update}>
+                                    {this.props.val}
+                                </button>
+                                )
+            },
+      });
+ React.renderComponent(
+        <app val={0} />,
+        document.getElementById('panel'))   
+  </script>
+</body>
+
+</html>

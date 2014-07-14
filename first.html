@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Render Method Gotchas</title>
+    <script src="http://fb.me/react-0.8.0.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.8.0.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    /*** @jsx React.DOM */
+    var app = React.createClass({
+         render:function(){
+          return(
+            <div>
+              <h1>hello world</h1>
+              <h2>hello world second example</h2>
+            </div>
+            )
+         }
+    });
+React.renderComponent(<app />,document.body)     
+
+</script>
+</body>
+</html>
+
+
